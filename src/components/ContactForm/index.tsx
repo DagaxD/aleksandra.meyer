@@ -16,7 +16,7 @@ export const ContactForm = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/send-email', formData);
+            const response = await axios.post('https://aleksandra-meyer.onrender.com/send-email', formData);
             alert(response.data);
         } catch (error) {
             console.error('Błąd podczas wysyłania wiadomości:', error);
