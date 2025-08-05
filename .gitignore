@@ -1,0 +1,30 @@
+# Ignorowanie plików środowiskowych
+.env
+
+# Ignorowanie folderów build
+node_modules/
+dist/
+
+# Ignorowanie logów
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorowanie systemowych plików tymczasowych
+.DS_Store
+Thumbs.db
+
+
+# Ignorowanie plików konfiguracyjnych (jeśli chcesz je ignorować)
+.babelrc
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+webpack.config.js
+
+# Ignorowanie plików blokady
+package-lock.json
+yarn.lock
+
+# Ignorowanie serwera (jeśli nie chcesz go śledzić w repozytorium)
+server.js

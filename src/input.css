@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animacja zmiany koloru tekstu w tęczy */
+@keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+  }
+  
+  /* Animacja dla przesuwającego się tekstu */
+  @keyframes slideInOut {
+    0% {
+      transform: translateX(100%); /* Początkowo na prawo */
+    }
+    20% {
+      transform: translateX(0); /* Wjeżdża na środek */
+    }
+    80% {
+      transform: translateX(0); /* Jest na środku przez chwilę */
+    }
+    100% {
+      transform: translateX(-100%); /* Znika na lewo */
+    }
+  }
+  
+  .rainbow-text {
+    display: inline-block;
+    animation: rainbow 5s linear infinite, slideInOut 3s ease-in-out infinite;
+  }
+  
+  .text-animation-center {
+    position: relative;
+    display: inline-grid;
+    width: 300px;
+    overflow: hidden; 
+  }
+
+  .gradient-bg {
+    background: linear-gradient(180deg, rgba(140, 82, 255, 0.4), rgba(103, 221, 225, 0.525));
+  }
+  
+  .violet-bg {
+    background: #bea3f4;
+  }
+  .image-people {
+    background-image: url('people.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+  }
+
+  .bg-opacity {
+    background: rgba(230, 226, 219, 0.72)
+  }
+
+  .shadow-md {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-online {
+    background-image: url('online.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+  }
+
+  .image-offline {
+    background-image: url('offline.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+  }
+
+  .image-contact {
+    background-image: url('contact.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+  }
+
+  .image-about {
+    background-image: url('omnie.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+  }
+
+
+  
