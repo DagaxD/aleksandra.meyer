@@ -60,7 +60,7 @@ app.post('/send-email', async (req, res) => {
     // Konfiguracja wiadomości e-mail
     const mailOptions = {
         from: email,
-        to: process.env.EMAIL_USER, // Twój e-mail, na który chcesz otrzymywać wiadomości
+        to: process.env.EMAIL_TO, // Twój e-mail, na który chcesz otrzymywać wiadomości
         subject: `Nowa wiadomość od ${name}`,
         text: `
                 Imię: ${name}
@@ -78,7 +78,7 @@ app.post('/send-email', async (req, res) => {
         res.status(200).send('Wiadomość została wysłana!');
     } catch (error) {
         console.error('Błąd podczas wysyłania wiadomości:', error);
-        res.status(500).send('Wystąpił błąd podczas wysyłania wiadomości.');
+        res.status(500).send('Wystąpił błąd podczas wysyłania wiadomości:'+ ' ' + error.message);
     }
 });
 
