@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // Endpoint do wysyłania e-maili
 app.post('/send-email', async (req, res) => {
-    const { name, email, message } = req.body;
+    const { name, email, message, phone, language} = req.body;
 
     // Konfiguracja transportera Nodemailer
     const transporter = nodemailer.createTransport({
@@ -29,7 +29,15 @@ app.post('/send-email', async (req, res) => {
         from: email,
         to: process.env.EMAIL_USER, // Twój e-mail, na który chcesz otrzymywać wiadomości
         subject: `Nowa wiadomość od ${name}`,
-        text: message,
+        text: `
+                Imię: ${name}
+                Email: ${email}
+                Telefon: ${phone}
+                Język: ${language}
+
+                Wiadomość:
+                ${message}
+            `,
     };
 
     try {
