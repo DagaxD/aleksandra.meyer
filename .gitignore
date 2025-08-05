@@ -1,30 +1,32 @@
-# Ignorowanie plików środowiskowych
+# 🔐 Pliki środowiskowe (trzymaj lokalnie)
 .env
 
-# Ignorowanie folderów build
+# 📦 Katalog node_modules (nie wrzucamy do repo)
 node_modules/
-dist/
 
-# Ignorowanie logów
+# 🐞 Logi
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Ignorowanie systemowych plików tymczasowych
+# 💻 Pliki systemowe
 .DS_Store
 Thumbs.db
 
-
-# Ignorowanie plików konfiguracyjnych (jeśli chcesz je ignorować)
+# ⚙️ Pliki konfiguracyjne – zależnie od potrzeb
+# (można je trzymać w repo, jeśli nie zawierają nic tajnego)
 .babelrc
 postcss.config.js
 tailwind.config.js
 tsconfig.json
 webpack.config.js
 
-# Ignorowanie plików blokady
-package-lock.json
+# 🔒 Pliki blokady – zostaw jeden z nich
+# Jeśli używasz npm:
 yarn.lock
+# Jeśli używasz yarn:
+package-lock.json
 
-# Ignorowanie serwera (jeśli nie chcesz go śledzić w repozytorium)
-server.js
+# ✅ NIE ignoruj `dist/` ani `server.js` – są potrzebne na Renderze!
+# dist/
+# server.js
