@@ -1,3 +1,5 @@
+@config "../tailwind.config.js";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +98,67 @@
     background-repeat: no-repeat;
     height: 800px;
   }
+  .text-center {
+    text-align: center;
+  }
+
+  .text-bluee:hover {
+    color: #0000FF;
+
+  }
 
 
+  @layer utilities {
+    .perspective {
+      perspective: 1000px;
+    }
   
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+    }
+  
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+  
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    .w-64 {
+        width: 16rem; /* 256px */
+      }
+    
+      .h-40 {
+        height: 10rem; /* 160px */
+      }
+
+      .shadow-lg-strong-top {
+        box-shadow:
+        0 -4px 8px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.08);
+      }
+      .shadow-lg {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      }
+
+      .bg-light-purple {
+        background-color: #e8dcf4;
+      }
+      .py-10 {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+      .px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      
+      /* Max width and centering */
+      .max-w-5xl {
+        max-width: 80rem;
+      }
+      .gap-8 {
+        gap: 2rem;
+      }
+  }

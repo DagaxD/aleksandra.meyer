@@ -28,16 +28,16 @@ export const Menu = () => {
             <a href="/" className="text-[#5a2a82] no-underline hover:text-[#FF0000]">
                 Home
             </a>
-            <a href="/lekcje-online" className="text-[#5a2a82] no-underline hover:text-[#FFA500]">
-                Lekcje online
+            <a href="/online" className="text-[#5a2a82] no-underline hover:text-[#FFA500]">
+                Zajęcia online
             </a>
-            <a href="/lekcje-z-dojazdem" className="text-[#5a2a82] no-underline hover:text-[#FFFF00]">
-                Lekcje z dojazdem
+            <a href="/z-dojazdem" className="text-[#5a2a82] no-underline hover:text-[#FFFF00]">
+                Zajęcia z dojazdem
             </a>
             <a href="/o-mnie" className="text-[#5a2a82] no-underline hover:text-[#008000]">
                 O mnie
             </a>
-            <a href="/kontakt" className="text-[#008000] no-underline hover:text-[#0000FF]">
+            <a href="/kontakt" className="text-[#008000] no-underline text-bluee hover:text-bluee">
                 Kontakt
             </a>
         </div>

@@ -22,7 +22,7 @@ const sanitize = (input) => {
 
 // Endpoint do wysyłania e-maili
 app.post('/send-email', async (req, res) => {
-    let { name, email, message, phone, language} = req.body;
+    let { name, email, message, phone, language, type, version} = req.body;
 
      // Sanityzacja
      name = sanitize(name);
@@ -30,10 +30,12 @@ app.post('/send-email', async (req, res) => {
      message = sanitize(message);
      phone = sanitize(phone);
      language = sanitize(language);
+     type = sanitize(type);
+     version = sanitize(version);
 
       // Walidacja pól
-    if (!name || !email || !message) {
-        return res.status(400).send('Imię, e-mail i wiadomość są wymagane.');
+    if (!name || !email || !message || !type || !version) {
+        return res.status(400).send('Imię, e-mail, wiadomość, typ zajęć i rodzaj są wymagane.');
     }
 
     if (!email.includes('@')) {
@@ -67,13 +69,16 @@ app.post('/send-email', async (req, res) => {
                 Email: ${email}
                 Telefon: ${phone}
                 Język: ${language}
+                Typ zajęć: ${type === 'package' ? 'Pakiet' : 'Pojedyncze zajęcia'}
+                Rodzaj zajęć: ${version}
 
                 Wiadomość:
                 ${message}
             `,
     };
-
+    console.log('Mail do wysłania:', mailOptions);
     try {
+        console.log('Wysyłana wiadomość1:', mailOptions);
         await transporter.sendMail(mailOptions);
         res.status(200).send('Wiadomość została wysłana!');
     } catch (error) {
@@ -84,5 +89,6 @@ app.post('/send-email', async (req, res) => {
 
 // Uruchomienie serwera
 app.listen(PORT, () => {
-    console.log(`Serwer działa na porcie ${PORT}`);
+    console.log(`Serwer działa na porcie: ${PORT}`);
+    console.log('🔥 Backend uruchomiony ponownie');
 });

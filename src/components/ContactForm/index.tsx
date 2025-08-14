@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
-import { Typography, Button, TextField, MenuItem } from '@mui/material';
-import axios from 'axios';
+import { Button, TextField, MenuItem, CircularProgress } from '@mui/material';
+import axios, { AxiosError } from 'axios';
 
-export const ContactForm = () => {
+type ContactProps = {
+    language?: string;
+    type?: string;
+    online?: boolean;
+}
+
+export const ContactForm = ({language, type, online}: ContactProps) => {
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: '',
         phone: '',
-        language: '',
+        language: language || '',
+        type: type || '',
+        version: online === true ? 'online' : online === false ? 'offline' : ''
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -17,12 +26,16 @@ export const ContactForm = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
             const response = await axios.post('https://aleksandra-meyer.onrender.com/send-email', formData);
             alert(response.data);
         } catch (error) {
+            const axiosError = error as AxiosError;
             console.error('Błąd podczas wysyłania wiadomości:', error);
-            alert('Wystąpił błąd podczas wysyłania wiadomości.');
+            alert(`Wystąpił błąd podczas wysyłania wiadomości: ${axiosError.response?.data || 'Nieznany błąd.'} `);
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -70,6 +83,34 @@ export const ContactForm = () => {
                 <MenuItem value="Włoski">Włoski</MenuItem>
             </TextField>
             <TextField
+                select
+                label="Typ zajęć"
+                name="type"
+                type="type"
+                variant="outlined"
+                value={formData.type}
+                onChange={handleChange}
+                required
+            >
+                <MenuItem value="">-- Wybierz typ zajęć --</MenuItem>
+                <MenuItem value="single">Zajęcia 60min</MenuItem>
+                <MenuItem value="package">Pakiet 10 zajęć</MenuItem>
+            </TextField>
+            <TextField
+                select
+                label="Rodzaj zajęć"
+                name="version"
+                type="version"
+                variant="outlined"
+                value={formData.version}
+                onChange={handleChange}
+                required
+            >
+                <MenuItem value="">-- Wybierz rodzaj zajęć --</MenuItem>
+                <MenuItem value="online">Online</MenuItem>
+                <MenuItem value="offline">Z dojazdem</MenuItem>
+            </TextField>
+            <TextField
                 label="Wiadomość"
                 name="message"
                 multiline
@@ -79,8 +120,13 @@ export const ContactForm = () => {
                 onChange={handleChange}
                 required
             />
-            <Button type="submit" variant="contained" color="primary">
-                Wyślij
+            <Button 
+                type="submit"
+                 variant="contained" 
+                 color="secondary"
+                 disabled={isLoading}
+                >
+                {isLoading ? <CircularProgress size={24} color="inherit" /> : 'Wyślij'}
             </Button>
         </form>
     </div>
