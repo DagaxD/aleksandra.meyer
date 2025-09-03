@@ -74,6 +74,13 @@
     background-repeat: no-repeat;
     height: 800px;
   }
+  .image-tlumaczenia {
+    background-image: url('tlumacz.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+  }
 
   .image-offline {
     background-image: url('offline.jpg');
@@ -160,5 +167,36 @@
       }
       .gap-8 {
         gap: 2rem;
+      }
+      @media (max-width: 767px) {
+        .mob-px-\[30px\] {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+        .mob-text-center {
+            text-align: center!important;
+        }
+        .mob-h-144 {
+            height: 144px;
+        }
+        .grid-cols-3 {
+            grid-template-columns: auto!important;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: none!important;
+        }
+        .mob-hide {
+            display: none!important;
+        }
+        .mob-mb-\[24px\] {
+            margin-bottom: 24px!important;
+        }
+        .mob-mx-30 {
+            margin-inline: 30px!important;
+        }
+        .mob-mt-50 {
+            margin-top: 50px!important;
+        }
       }
   }

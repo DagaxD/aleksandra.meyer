@@ -3,7 +3,7 @@ import React from "react";
 
 export const TryMe = () => {
     return (
-        <div className='text-center mt-[64px] mb-[64px] '>
+        <div className='text-center mt-[64px] mb-[64px] mob-px-[30px]'>
             <Typography variant='h3' className='!mb-[64px]'>
                 Zacznij już dziś!
             </Typography>
@@ -13,7 +13,7 @@ export const TryMe = () => {
                         Zrób pierwszy krok – umów się na lekcję próbną i przekonaj się, jak skuteczna może być nauka języków w komfortowych warunkach.
                     </Typography>
                 </div>
-                <div className="border text-[#5a2a82] h-[100px] " />
+                <div className="border text-[#5a2a82] h-[100px] mob-hide" />
                 <div className='justify-center items-center flex'>
                     <Button variant='contained' color='secondary' href='/kontakt' size='large'>
                         Umów się na lekcję próbną

@@ -28,6 +28,9 @@ export const Menu = () => {
             <a href="/" className="text-[#5a2a82] no-underline hover:text-[#FF0000]">
                 Home
             </a>
+            <a href="/tlumaczenia" className="text-[#5a2a82] no-underline hover:text-[#FFA500]">
+                Tłumaczenia
+            </a>
             <a href="/online" className="text-[#5a2a82] no-underline hover:text-[#FFA500]">
                 Zajęcia online
             </a>

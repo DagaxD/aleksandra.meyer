@@ -7,7 +7,7 @@ export const OMnie = () => {
     return (
         <>
         <div className='image-about mt-[-61px] pt-[61px] pb-[64px]'>
-            <div className='mx-[64px] mt-[100px] max-w-[700px] flex flex-col gap-[20px] bg-opacity rounded-lg p-[24px]'>
+            <div className='mx-[64px] mt-[100px] max-w-[700px] flex flex-col gap-[20px] bg-opacity rounded-lg p-[24px] mob-mx-30'>
                 <Typography variant='h4'>O Mnie</Typography>
                 <Typography variant='h6'>Jestem nauczycielem języków obcych z wieloletnim doświadczeniem w nauczaniu.</Typography>
                  <Typography variant='h6'>Specjalizuję się w nauczaniu języka angielskiego, niemieckiego i włoskiego.</Typography>

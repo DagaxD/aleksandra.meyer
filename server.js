@@ -22,7 +22,7 @@ const sanitize = (input) => {
 
 // Endpoint do wysyłania e-maili
 app.post('/send-email', async (req, res) => {
-    let { name, email, message, phone, language, type, version} = req.body;
+    let { name, email, message, phone, language, type, version, purpose, targetLanguage, documentType} = req.body;
 
      // Sanityzacja
      name = sanitize(name);
@@ -32,10 +32,22 @@ app.post('/send-email', async (req, res) => {
      language = sanitize(language);
      type = sanitize(type);
      version = sanitize(version);
+     purpose = sanitize(purpose);
+     targetLanguage = sanitize(targetLanguage);
+     documentType = sanitize(documentType);
 
       // Walidacja pól
-    if (!name || !email || !message || !type || !version) {
-        return res.status(400).send('Imię, e-mail, wiadomość, typ zajęć i rodzaj są wymagane.');
+    if (!name || !email || !message) {
+        return res.status(400).send('Imię, e-mail oraz wiadomość są wymagane.');
+    }
+    if (purpose !== 'translation') {
+        if (!type || !version) {
+            return res.status(400).send('Typ zajęć i rodzaj zajęć są wymagane.');
+        }
+    } else {
+        if (!language || !targetLanguage) {
+            return res.status(400).send('Język źródłowy i docelowy są wymagane.');
+        }
     }
 
     if (!email.includes('@')) {
@@ -59,28 +71,40 @@ app.post('/send-email', async (req, res) => {
         },
     });
 
-    // Konfiguracja wiadomości e-mail
-    const mailOptions = {
-        from: email,
-        to: process.env.EMAIL_TO, // Twój e-mail, na który chcesz otrzymywać wiadomości
-        subject: `Nowa wiadomość od ${name}`,
-        text: `
+    const mailContent = purpose === 'translation' ? `
                 Imię: ${name}
                 Email: ${email}
                 Telefon: ${phone}
+                🔹 CEL: Tłumaczenie
+                Język źródłowy: ${language}
+                Język docelowy: ${targetLanguage}
+                Typ dokumentu: ${documentType || 'nie podano'}
+
+                Wiadomość:
+                ${message}
+    ` 
+    : `
+                Imię: ${name}
+                Email: ${email}
+                Telefon: ${phone}
+                🔹 CEL: Zajęcia
                 Język: ${language}
                 Typ zajęć: ${type === 'package' ? 'Pakiet' : 'Pojedyncze zajęcia'}
                 Rodzaj zajęć: ${version}
 
                 Wiadomość:
                 ${message}
-            `,
+            `
+    // Konfiguracja wiadomości e-mail
+    const mailOptions = {
+        from: email,
+        to: process.env.EMAIL_TO, // Twój e-mail, na który chcesz otrzymywać wiadomości
+        subject: `Nowa wiadomość od ${name}`,
+        text: mailContent,
     };
-    console.log('Mail do wysłania:', mailOptions);
     try {
-        console.log('Wysyłana wiadomość1:', mailOptions);
         await transporter.sendMail(mailOptions);
-        res.status(200).send('Wiadomość została wysłana!');
+        res.status(200).send('Wiadomość została wysłana!, ' + JSON.stringify(mailOptions));
     } catch (error) {
         console.error('Błąd podczas wysyłania wiadomości:', error);
         res.status(500).send('Wystąpił błąd podczas wysyłania wiadomości:'+ ' ' + error.message);

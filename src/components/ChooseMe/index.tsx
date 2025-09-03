@@ -19,6 +19,14 @@ export const ChooseMe = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         slidesPerView={3} // Ile slajdów naraz (możesz dać 2-3)
+        breakpoints={{
+            0: {
+              slidesPerView: 1, // mobile: 0–767px
+            },
+            768: {
+              slidesPerView: 3, // md+ (desktop)
+            },
+          }}
         navigation // Strzałki nawigacyjne
         pagination={{ clickable: true }} // Kropeczki nawigacyjne
         autoplay={{ delay: 3000 }} // Automatyczne przesuwanie co 3 sekundy

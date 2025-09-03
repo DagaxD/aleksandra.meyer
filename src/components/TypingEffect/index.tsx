@@ -39,7 +39,7 @@ export default function TypingEffect() {
   }, [text, charIndex, deleting, index]);
 
   return (
-    <div className="flex items-center justify-center pt-[100px] bg-purple-100">
+    <div className="flex items-center justify-center pt-[100px] bg-purple-100 mob-h-144">
       <Typography variant="h2" style={{ fontFamily: "Mynerve"}} className="text-[#5a2a82] font-holidays">{text}|</Typography>
     </div>
   );

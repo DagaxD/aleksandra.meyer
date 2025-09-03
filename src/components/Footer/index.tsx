@@ -15,8 +15,11 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-wrap justify-center flex-col gap-8 ">
-        <Typography variant="h6">Rodzaje zajęć</Typography>
+        <Typography variant="h6">Oferta</Typography>
         <div className='flex gap-4 flex-col'>
+            <MuiLink component={Link} to="/tlumaczenia" underline="hover" color="inherit">
+            <Typography variant="body1">Tłumaczenia</Typography>
+          </MuiLink>
           <MuiLink component={Link} to="/online" underline="hover" color="inherit">
             <Typography variant="body1">Zajęcia online</Typography>
           </MuiLink>
@@ -29,6 +32,9 @@ const Footer = () => {
         <div className="flex flex-wrap justify-center flex-col gap-8 ">
         <Typography variant="h6">Cennik</Typography>
         <div className='flex gap-4 flex-col'>
+        <MuiLink component={Link} to="/tlumaczenia#cennik" underline="hover" color="inherit">
+            <Typography variant="body1">Cennik tłumaczeń</Typography>
+          </MuiLink>
           <MuiLink component={Link} to="/online#cennik" underline="hover" color="inherit">
             <Typography variant="body1">Cennik zajęć online</Typography>
           </MuiLink>

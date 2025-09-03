@@ -11,7 +11,7 @@ export const Home = () => {
 
     return (
         <>
-               <div className='image-people mt-[-61px] pt-[61px] gradient-bg bg-[#f4f1e8] pb-[64px]'>
+               <div className='image-people mt-[-61px] pt-[61px] gradient-bg bg-[#f4f1e8] pb-[64px] mob-px-[30px]'>
                  <TypingEffect />
                  <div className='mt-[64px] bg-opacity '>
                    <Typography variant='h3' style={{ fontFamily: "Mulish"}} className="text-[#5a2a82] text-center">
@@ -33,7 +33,7 @@ export const Home = () => {
                <div>
                  <ChooseMe />
                </div>
-               <div className='text-center mt-[64px] mb-[64px]'>
+               <div className='text-center mt-[64px] mb-[64px] mob-px-[30px]'>
                     <Typography variant='h3' className='!mb-[64px]'>
                     🚗 Zajęcia z dojazdem
                     </Typography>
@@ -51,7 +51,7 @@ export const Home = () => {
                         </Typography>
                     </div>
                </div>
-               <div className='text-center mt-[64px] mb-[64px]'>
+               <div className='text-center mt-[64px] mb-[64px] mob-px-[30px]'>
                     <Typography variant='h3' className='!mb-[64px]'>
                     Cennik
                     </Typography>
@@ -71,7 +71,7 @@ export const Home = () => {
                         Wybierz poniżej, jaka forma zajęć Cię interesuje, aby poznać szczegóły:
                     </Typography>
                     <div className='mt-[24px] flex gap-[24px] justify-center flex-wrap'>
-                        <Button variant='contained' color='secondary' href='/z-dojazdem#cennik' size='large' className='!mb-[64px] mt-[24px]'>
+                        <Button variant='contained' color='secondary' href='/z-dojazdem#cennik' size='large' className='!mb-[64px] mt-[24px] mob-mb-[24px]'>
                             Zajęcia z dojazdem do ucznia
                         </Button>
                         <Button variant='contained' color='secondary' href='/online#cennik' size='large' className='!mb-[64px]'>
