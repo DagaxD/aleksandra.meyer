@@ -104,7 +104,7 @@ app.post('/send-email', async (req, res) => {
     };
     try {
         await transporter.sendMail(mailOptions);
-        res.status(200).send('Wiadomość została wysłana!, ' + JSON.stringify(mailOptions));
+        res.status(200).send('Wiadomość została wysłana!');
     } catch (error) {
         console.error('Błąd podczas wysyłania wiadomości:', error);
         res.status(500).send('Wystąpił błąd podczas wysyłania wiadomości:'+ ' ' + error.message);
