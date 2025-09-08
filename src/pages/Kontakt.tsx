@@ -1,5 +1,5 @@
-import React from 'react';
-import { Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import { ContactForm } from '../components/ContactForm';
 import { useLocation } from 'react-router-dom';
 
@@ -11,13 +11,36 @@ export const Kontakt = () => {
         online?: boolean;
         purpose?: 'lesson' | 'translation';
     };
+  
+    const [purpose, setPurpose] = useState<'lesson' | 'translation'>(state?.purpose || 'lesson');
 
-    const isTranslation = state?.purpose === 'translation';
+    useEffect(() => {
+        if (state?.purpose) {
+            setPurpose(state.purpose);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const isTranslation = purpose === 'translation';
 
     return (
         <>
             <div className='image-contact mt-[-61px] pt-[61px] pb-[64px] mb-[64px]'>
                 <div className='flex content-center justify-center flex-col items-center mt-[64px] mb-[24px] mob-px-[30px]'>
+                    <ToggleButtonGroup
+                        value={purpose}
+                        exclusive
+                        onChange={(event, newValue) => {
+                            if (newValue !== null) {
+                              setPurpose(newValue);
+                            }
+                          }}
+                        aria-label="Typ kontaktu"
+                        className='mb-[24px]'
+                    >
+                        <ToggleButton value="lesson">Zajęcia</ToggleButton>
+                        <ToggleButton value="translation">Tłumaczenia</ToggleButton>
+                    </ToggleButtonGroup>
                     {isTranslation ? (
                         <>
                             <Typography variant='h4' className='mob-text-center'>Potrzebujesz tłumaczenia?</Typography>
@@ -35,7 +58,7 @@ export const Kontakt = () => {
                     language={state?.language}
                     type={state?.type}
                     online={state?.online}
-                    purpose={state?.purpose}
+                    purpose={purpose}
                 />
             </div>
 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const Tlumaczenia = () => {
     return (
         <>
-            <div className='image-tlumaczenia mt-[-61px] pt-[61px] pb-[64px]'>
+            <div className='h-auto image-tlumaczenia mt-[-61px] pt-[61px] pb-[64px]'>
                 <div className='mx-[64px] mob-mx-30 mt-[100px] mob-mt-50 max-w-[800px] flex flex-col gap-[20px] bg-opacity rounded-lg p-[24px]'>
                     <Typography variant='h4'>Tłumaczenia pisemne</Typography>
 
@@ -46,7 +46,7 @@ export const Tlumaczenia = () => {
             </div>
 
             <section id="cennik">
-                <div className='flex  mt-[100px] justify-center items-center mb-[64px]'>
+                <div className='flex  mob-flex-col flex-row  mt-[100px] justify-center items-center mb-[64px]'>
                     <div className='text-center ml-[100px] mr-[100px] mob-mx-30'>
                         <Typography variant='h5' className='text-left mt-[24px]'>Przykładowy cennik</Typography>
                         <Typography variant='h6' className='text-left mt-[10px]'>
@@ -61,7 +61,7 @@ export const Tlumaczenia = () => {
                             Skontaktuj się, aby otrzymać indywidualną wycenę i termin realizacji.
                         </Typography>
                     </div>
-                    <div>
+                    <div className='mob-mt-50'>
                         <Link to="/kontakt" state={{ purpose: 'translation'}}>
                             <Button variant="contained" color="secondary">
                                 Skontaktuj się w sprawie tłumaczenia

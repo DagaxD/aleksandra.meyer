@@ -79,7 +79,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 800px;
+    height: auto;
   }
 
   .image-offline {
@@ -95,7 +95,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 800px;
+    height: auto;
   }
 
   .image-about {
@@ -137,6 +137,9 @@
     
       .h-40 {
         height: 10rem; /* 160px */
+      }
+      .h-auto {
+        height: auto;
       }
 
       .shadow-lg-strong-top {
@@ -197,6 +200,15 @@
         }
         .mob-mt-50 {
             margin-top: 50px!important;
+        }
+        .mob-flex-col {
+            flex-direction: column!important;
+        }
+        .mob-w-auto {
+            width: auto!important;
+        }
+        .mob-mb-20 {
+            margin-bottom: 20px!important;
         }
       }
   }

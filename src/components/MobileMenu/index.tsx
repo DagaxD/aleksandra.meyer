@@ -40,11 +40,11 @@ type NavLinksProps = {
 
 const NavLinks = ({ onClick }: NavLinksProps) => (
     <>
-        <a onClick={onClick} href="/" className="text-[#5a2a82] no-underline hover:text-[#FF0000]">Home</a>
-        <a onClick={onClick} href="/tlumaczenia" className="text-[#5a2a82] no-underline hover:text-[#FFA500]">Tłumaczenia</a>
-        <a onClick={onClick} href="/online" className="text-[#5a2a82] no-underline hover:text-[#FFA500]">Zajęcia online</a>
-        <a onClick={onClick} href="/z-dojazdem" className="text-[#5a2a82] no-underline hover:text-[#FFFF00]">Zajęcia z dojazdem</a>
-        <a onClick={onClick} href="/o-mnie" className="text-[#5a2a82] no-underline hover:text-[#008000]">O mnie</a>
-        <a onClick={onClick} href="/kontakt" className="text-[#008000] no-underline hover:text-blue-600">Kontakt</a>
+        <a onClick={onClick} href="/" className="text-[#5a2a82] no-underline hover:text-[#FF0000]" style={{ fontFamily: "Mulish"}}>Home</a>
+        <a onClick={onClick} href="/tlumaczenia" className="text-[#5a2a82] no-underline hover:text-[#FFA500]" style={{ fontFamily: "Mulish"}}>Tłumaczenia</a>
+        <a onClick={onClick} href="/online" className="text-[#5a2a82] no-underline hover:text-[#FFA500]" style={{ fontFamily: "Mulish"}}>Zajęcia online</a>
+        <a onClick={onClick} href="/z-dojazdem" className="text-[#5a2a82] no-underline hover:text-[#FFFF00]" style={{ fontFamily: "Mulish"}}>Zajęcia z dojazdem</a>
+        <a onClick={onClick} href="/o-mnie" className="text-[#5a2a82] no-underline hover:text-[#008000]" style={{ fontFamily: "Mulish"}}>O mnie</a>
+        <a onClick={onClick} href="/kontakt" className="text-[#008000] no-underline hover:text-blue-600" style={{ fontFamily: "Mulish"}}>Kontakt</a>
     </>
 );
